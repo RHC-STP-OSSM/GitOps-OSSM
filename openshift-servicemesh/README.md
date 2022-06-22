@@ -27,9 +27,11 @@ For each SMCP capability, we state our assumptions first and then our recommenda
     The Jaeger resource must be in the same namespace as the SMCP resource. 
     This approach gives users complete flexibility for configuring Jaeger.
 
+
 The following Jaeger CRD yaml snippet illustrates the above points.
 
-![](jaeger.PNG)
+![](jaeger.png)
+
 
 ## Control Plane Security - mTLS
 
@@ -45,7 +47,9 @@ The following Jaeger CRD yaml snippet illustrates the above points.
     The sampling rate determines how often the Envoy proxy generates a trace. You can use the sampling rate option to control what percentage of requests get reported to your tracing system. 
     You can configure this setting based upon your traffic in the mesh and the amount of tracing data you want to collect. You configure sampling as a scaled integer representing 0.01% increments. 
     For example, setting the value to 10 means to sample 0.1% of traces, setting the value to 500 samples 5% of traces, and a setting of 10000 samples 100% of traces.
-    
+
+![](sampling.png)
+
 ## References
 
 Service Mesh Jaeger:
