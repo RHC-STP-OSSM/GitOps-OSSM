@@ -58,9 +58,10 @@ The following Jaeger CRD yaml snippet illustrates the above points.
 ### This settings instructs the Control Plane to auto create OpenShift Routes based on Service Mesh Gateway CRD's
 
 - spec.gateways.openshiftRoute:enabled: true
-- Naming convention: http://<namespace>-<gateway name>-<hash>-<control plane namespace>.<wildcard domain host name>
+- Naming convention: "http://<namespace>-<gateway name>-<hash>-<control plane namespace>.<wildcard domain host name>"
 - e.g. http://bookinfo-bookinfo-gateway-525eca1d5089dbdc-istio-system.apps.cluster-47mmf.47mmf.sandbox1759.opentlc.com
 - The Control Plane will manage the creation/deletion of the route when Gateway CRD changed/deleted/created
+- If the Gateway CRD defines a secure HTTPS gateway resource, the control plane will create the secure TLS edge-termited route accordingly.
 - Note: manually created Routes will not be affected by this setting
 
 ## Sampling Setting for Enovy Proxy
