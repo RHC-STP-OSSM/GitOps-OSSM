@@ -1,6 +1,6 @@
 - op: replace
   path: /spec/channel
-  value: stable
+  value: latest
 - op: replace
   path: /spec/startingCSV
-  value: argocd-operator.v0.0.14
+  value: openshift-gitops-operator.v1.5.3
