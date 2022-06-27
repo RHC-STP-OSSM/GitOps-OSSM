@@ -37,10 +37,21 @@ The following Jaeger CRD yaml snippet illustrates the above points.
 
 - Assumption: secure communication within Control Plane components (e.g. between Istiod pod and Jaeger pod)
 
+## Data Plane Security - mTLS
+
+- Assumption: workloads within the mesh Do Not call out to services outside the mesh; secure communication within the mesh between namepaces/projects (e.g. between bookinfo and sleep)
+
 ### Recommendation:
 - Set "mtls: true" under Security: controlPlane
     By default, Red Hat OpenShift Service Mesh generates a self-signed root certificate and key and uses them to sign the control plane component workload certificates
+
+- Set "mtls: true" under Security: dataPlane
+    By default, Red Hat OpenShift Service Mesh generates a self-signed root certificate and key and uses them to sign the data plane component workload certificates
     
+    
+## OSSM Fine Grained Security Protocol Requirements
+
+- Assumption: need more detailed feedback from Telus regarding environment specific requirements for encrypted traffic in the service mesh, you can control the cryptographic functions, etc.
     
 ## Sampling Setting for Enovy Proxy
 
