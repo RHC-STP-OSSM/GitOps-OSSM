@@ -52,7 +52,17 @@ The following Jaeger CRD yaml snippet illustrates the above points.
 ## OSSM Fine Grained Security Protocol Requirements
 
 - Assumption: need more detailed feedback from Telus regarding environment specific requirements for encrypted traffic in the service mesh, you can control the cryptographic functions, etc.
-    
+
+## Automatic Route Creation
+
+### This settings instructs the Control Plane to auto create OpenShift Routes based on Service Mesh Gateway CRD's
+
+- spec.gateways.openshiftRoute:enabled: true
+- Naming convention: http://<namespace>-<gateway name>-<hash>-<control plane namespace>.<wildcard domain host name>
+- e.g. http://bookinfo-bookinfo-gateway-525eca1d5089dbdc-istio-system.apps.cluster-47mmf.47mmf.sandbox1759.opentlc.com
+- The Control Plane will manage the creation/deletion of the route when Gateway CRD changed/deleted/created
+- Note: manually created Routes will not be affected by this setting
+
 ## Sampling Setting for Enovy Proxy
 
     The sampling rate determines how often the Envoy proxy generates a trace. You can use the sampling rate option to control what percentage of requests get reported to your tracing system. 
