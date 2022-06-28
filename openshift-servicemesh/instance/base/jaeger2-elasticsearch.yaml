@@ -1,0 +1,25 @@
+apiVersion: jaegertracing.io/v1
+kind: Jaeger
+metadata:
+  name: jaeger-prod2
+spec:
+      strategy: production
+      storage:
+        type: elasticsearch
+        elasticsearch:
+          nodeCount: 3
+          storage: 
+            storageClassName: gp2
+            size: 50Gi      
+          resources:
+            requests:
+              cpu: 200m
+              memory: 4Gi
+            limits:
+              memory: 4Gi
+          redundancyPolicy: SingleRedundancy
+      collector:
+        replicas: 3
+      query:
+        replicas: 2   
+        
