@@ -81,6 +81,13 @@ The following Jaeger CRD yaml snippet illustrates the above points.
   - The cluster administrator gets control and visibility across all the Istio control planes, while the tenant administrator only gets control over their specific Service Mesh, Kiali, and Jaeger instances.
   - You can grant a team permission to deploy its workloads only to a given namespace or set of namespaces. If granted the "mesh-user" role by the service mesh administrator, users can create a ServiceMeshMember resource to add namespaces to the ServiceMeshMemberRoll.
 
+    
+## Resources: Requests and Limits
+
+-  Requests are more important than limits. Limits tell the linux kernel when to consider your process a candidate for freeing up memory. Requests help the kubernetes scheduler figure out where it can run your pod. Not setting them, or setting them artificially low, can have bad effects.
+-  We do not recommend manually setting CPU and Memory resource requests and limits.  Let the Operator manage it.
+-  Unless you have high confidence of your production pod memory/cpu consumption, do not manually set the resources.
+    
 ## References
 
 Service Mesh Jaeger:
