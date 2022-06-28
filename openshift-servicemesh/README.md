@@ -71,6 +71,15 @@ The following Jaeger CRD yaml snippet illustrates the above points.
     For example, setting the value to 10 means to sample 0.1% of traces, setting the value to 500 samples 5% of traces, and a setting of 10000 samples 100% of traces.
 
 ![](sampling.png)
+    
+## Multitenant deployment model
+
+  - A namespace can only be included in a single mesh, and multiple meshes can be installed in a single OpenShift cluster.
+  - Control plane is used to configure communication between services in the mesh. 
+  - OSSM supports “soft multitenancy”, where there is one control plane and one mesh per tenant, and there can be multiple independent control planes within the cluster. 
+  - Multitenant deployments specify the projects that can access the Service Mesh and isolate the Service Mesh from other control plane instances.
+  - The cluster administrator gets control and visibility across all the Istio control planes, while the tenant administrator only gets control over their specific Service Mesh, Kiali, and Jaeger instances.
+  - You can grant a team permission to deploy its workloads only to a given namespace or set of namespaces. If granted the "mesh-user" role by the service mesh administrator, users can create a ServiceMeshMember resource to add namespaces to the ServiceMeshMemberRoll.
 
 ## References
 
