@@ -92,3 +92,6 @@ The following Jaeger CRD yaml snippet illustrates the above points.
 
 Service Mesh Jaeger:
 https://docs.openshift.com/container-platform/4.9/service_mesh/v2x/ossm-reference-jaeger.html
+    
+Control Plane and Data Plane Scalability
+https://maistra.io/docs/ossm-performance-scalability.html
